@@ -31,10 +31,15 @@
                 @Html.LabelFor(m => m.Address)
                 @Html.TextBoxFor(m => m.Address)
             </li>
-             <li>
-                @Html.LabelFor(m => m.Bank)
-                @Html.TextBoxFor(m => m.Bank)
+            <li>
+                @Html.LabelFor(m => m.Bank.AccountNumber)
+                @Html.TextBoxFor(m => m.Bank.AccountNumber)
             </li>
+            <li>
+                @Html.LabelFor(m => m.Bank.BankName)
+                @Html.TextBoxFor(m => m.Bank.BankName)
+            </li>
+           
 
 
         </ol>
@@ -49,6 +54,24 @@
 
         </tr>
     
+           <tr> 
+               <td>
+             @Html.DisplayFor(modelItem => Model.FirstName)
+                 </td>
+
+               <td>
+             @Html.DisplayFor(modelItem => Model.LastName)
+                 </td>
+                <td>
+             @Html.DisplayFor(modelItem => Model.Email)
+                 </td>
+                <td>
+             @Html.DisplayFor(modelItem => Model.Address)
+                 </td>
+               <td>
+             @Html.DisplayFor(modelItem => Model.CellPhones)
+                 </td>
+           </tr>           
     </table>
    
 

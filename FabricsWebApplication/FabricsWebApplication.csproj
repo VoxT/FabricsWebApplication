@@ -299,6 +299,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Create\Create.cshtml" />
     <Content Include="Views\Create\ViewExample.cshtml" />
+    <Content Include="Views\Create\AddPrices.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

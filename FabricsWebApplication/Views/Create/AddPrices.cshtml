@@ -1,0 +1,36 @@
+﻿@model FabricsFactoryMethodPattern.Entities.Prices
+@{
+    ViewBag.Title = "Register";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Create a new account.</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.Price)
+                @Html.TextBoxFor(m => m.Price)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.FabricsColorId)
+                @Html.TextBoxFor(m => m.FabricsColorId)
+            </li>
+          
+
+
+        </ol>
+        <input type="submit" value="AddPrices" />
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -40,18 +40,18 @@ namespace FabricsWebApplication.Controllers
 
         public ActionResult Create(Customer models)
         {
-            Connection connect = new Connection();
+           Connection connect = new Connection();
 
            // connect.CreateConnection();
 
-            var model = new List<Customer>();
+           // var model = new List<Customer>();
             //ExampleService example = new ExampleService();
             CustomerService customer = new CustomerService();
             customer.Create(models);
 
 
-           // return RedirectToAction("ViewExample", "Create");
-            return View(models);
+            return RedirectToAction("ViewExample", "Create");
+            //return View(models);
         }
 
         public ActionResult ViewExample()
@@ -65,8 +65,25 @@ namespace FabricsWebApplication.Controllers
            // Console.WriteLine(model.ToString());
             return View(model);
         }
-        public ActionResult AddPrices() 
+        public ActionResult AddPrices()
         {
+
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddPrices(Prices price) 
+        {
+            Connection connect = new Connection();
+
+            // connect.CreateConnection();
+
+            // var model = new List<Customer>();
+            //ExampleService example = new ExampleService();
+            CustomerService customer = new CustomerService();
+            var id = customer.GetAll().FirstOrDefault().Id;
+            customer.AddFabricsPrice(id, price);
 
             return RedirectToAction("ViewExample", "Create");
         }
