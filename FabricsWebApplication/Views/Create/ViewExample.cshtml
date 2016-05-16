@@ -1,0 +1,43 @@
+﻿@model IEnumerable<FabricsFactoryMethodPattern.Entities.Customer>
+@{
+    ViewBag.Title = "Register";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Create a new account.</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+
+        </tr>
+       @foreach (var ex in Model) { 
+       
+           <tr> 
+               <td>
+             @Html.DisplayFor(modelItem => ex.FirstName)
+                 </td>
+
+               <td>
+             @Html.DisplayFor(modelItem => ex.LastName)
+                 </td>
+               <td>
+             @Html.DisplayFor(modelItem => ex.CellPhones)
+                 </td>
+           </tr>           
+       }
+    </table>
+   
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
