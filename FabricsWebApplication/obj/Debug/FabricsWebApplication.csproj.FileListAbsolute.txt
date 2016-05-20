@@ -104,3 +104,13 @@ F:\Học tập\HK8\TTTN\TTTN\FabricsWebApplication\FabricsWebApplication\bin\Mon
 F:\Học tập\HK8\TTTN\TTTN\FabricsWebApplication\FabricsWebApplication\bin\MongoDB.Driver.Core.xml
 F:\Học tập\HK8\TTTN\TTTN\FabricsWebApplication\FabricsWebApplication\bin\MongoDB.Driver.Legacy.pdb
 F:\Học tập\HK8\TTTN\TTTN\FabricsWebApplication\FabricsWebApplication\bin\MongoDB.Driver.Legacy.xml
+F:\GoogleDrive\code\FabricsWebApplication\FabricsWebApplication\bin\FabricsFactoryMethodPattern.dll
+F:\GoogleDrive\code\FabricsWebApplication\FabricsWebApplication\bin\FabricsFactoryMethodPattern.pdb
+F:\GoogleDrive\code\FabricsWebApplication\FabricsWebApplication\bin\MongoDB.Bson.pdb
+F:\GoogleDrive\code\FabricsWebApplication\FabricsWebApplication\bin\MongoDB.Bson.xml
+F:\GoogleDrive\code\FabricsWebApplication\FabricsWebApplication\bin\MongoDB.Driver.pdb
+F:\GoogleDrive\code\FabricsWebApplication\FabricsWebApplication\bin\MongoDB.Driver.xml
+F:\GoogleDrive\code\FabricsWebApplication\FabricsWebApplication\bin\MongoDB.Driver.Core.pdb
+F:\GoogleDrive\code\FabricsWebApplication\FabricsWebApplication\bin\MongoDB.Driver.Core.xml
+F:\GoogleDrive\code\FabricsWebApplication\FabricsWebApplication\bin\MongoDB.Driver.Legacy.pdb
+F:\GoogleDrive\code\FabricsWebApplication\FabricsWebApplication\bin\MongoDB.Driver.Legacy.xml

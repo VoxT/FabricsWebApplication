@@ -3,8 +3,6 @@
     ViewBag.Title = "Register";
 }
 
-@{ int count = 0;}
-
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
     <h2>Create a new account.</h2>
@@ -43,7 +41,7 @@
             </li>
              <li>
                 @Html.LabelFor(m => m.CellPhones)
-                @Html.TextBoxFor(m => m.CellPhones[0].PhoneNumber)
+                @Html.TextBoxFor(m => m.CellPhones[0].PhoneNumber, new { @class = "cellPhone"})
                 <button type ="button" onclick ="addTextBox()">Add</button>
             </li>
            
@@ -54,8 +52,9 @@
     </fieldset>
     <script>
         function addTextBox() {
-           @{count += 1;}
-            $("button").before('<br/>'+'@Html.TextBoxFor(m => m.CellPhones[count].PhoneNumber)');
+            var count = parseInt($(".cellPhone").last().attr("id").substring(11));
+            count += 1;
+            $("button").before('<br/>' + '<input class="cellPhone" id="CellPhones_'+count+'__PhoneNumber" name="CellPhones[' +count+ '].PhoneNumber" type="text" value="">');
 
         }
 
