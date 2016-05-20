@@ -17,13 +17,8 @@
         <ol>
             <li>
                 @Html.LabelFor(m => m.Price)
-                @Html.TextBoxFor(m => m.Price)
+                @Html.TextBoxFor(m => m.Price,new { @type = "number" })
             </li>
-            <li>
-                @Html.LabelFor(m => m.FabricsColorId)
-                @Html.TextBoxFor(m => m.FabricsColorId)
-            </li>
-          
 
 
         </ol>

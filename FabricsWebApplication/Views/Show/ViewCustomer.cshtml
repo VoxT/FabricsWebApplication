@@ -1,0 +1,75 @@
+﻿@model IEnumerable<FabricsFactoryMethodPattern.Entities.Customer>
+@{
+    ViewBag.Title = "Register";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Create a new account.</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>CellPhone</th>
+            <th>DeskPhone</th>
+            <th>AccountNumber</th>
+            <th>BankName</th>
+            <th>Price</th>
+
+        </tr>
+       @foreach (var ex in Model) { 
+       
+           <tr> 
+                <td>
+             @Html.DisplayFor(modelItem => ex.Id.Increment)
+                 </td>
+               <td>
+             @Html.DisplayFor(modelItem => ex.FirstName)
+                 </td>
+
+               <td>
+             @Html.DisplayFor(modelItem => ex.LastName)
+                 </td>
+               <td>
+             @Html.DisplayFor(modelItem => ex.Email)
+                 </td>
+                 <td>
+             @Html.DisplayFor(modelItem => ex.Address)
+                 </td>
+
+               <td>
+             @Html.DisplayFor(modelItem => ex.CellPhones[0].PhoneNumber)
+                 </td>
+               <td>
+             @Html.DisplayFor(modelItem => ex.DeskPhones)
+                 </td>
+                <td>
+             @Html.DisplayFor(modelItem => ex.Bank.AccountNumber)
+                 </td>
+               <td>
+             @Html.DisplayFor(modelItem => ex.Bank.BankName)
+                 </td>
+               @foreach(var p in  ex.Prices){
+               <td>
+                   
+             @Html.DisplayFor(modelItem => p.Price)
+                 </td>
+               }
+           </tr>           
+       }
+    </table>
+   
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

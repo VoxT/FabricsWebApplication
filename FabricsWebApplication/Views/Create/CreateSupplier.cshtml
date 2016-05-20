@@ -1,0 +1,56 @@
+﻿@model FabricsFactoryMethodPattern.Entities.Supplier
+@{
+    ViewBag.Title = "CreateSupplier";
+}
+
+<hgroup class="title">
+    <h2>Create a new account @ViewBag.Title</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            <li>
+                @Html.Label(    "First Name:")
+                @Html.TextBoxFor(m => m.FirstName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.LastName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Address)
+                @Html.TextBoxFor(m => m.Address)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Bank.AccountNumber)
+                @Html.TextBoxFor(m => m.Bank.AccountNumber)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Bank.BankName)
+                @Html.TextBoxFor(m => m.Bank.BankName)
+            </li>
+             <li>
+                @Html.LabelFor(m => m.CellPhones)
+                @Html.TextBoxFor(m => m.CellPhones[0])
+            </li>
+           
+
+
+        </ol>
+        <input type="submit" value="Create" />
+    </fieldset>
+    
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,67 @@
+﻿@model FabricsFactoryMethodPattern.Entities.Employee
+@{
+    ViewBag.Title = "Employee";
+}
+
+<hgroup class="title">
+    <h2>Create a new account @ViewBag.Title.</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            <li>
+                @Html.Label("First Name:")
+                @Html.TextBoxFor(m => m.FirstName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.LastName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.BirthDate)
+                @Html.TextBoxFor(m => m.BirthDate,new { @type = "date", })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Address)
+                @Html.TextBoxFor(m => m.Address)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.IdentityCardNumber)
+                @Html.TextBoxFor(m => m.IdentityCardNumber)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Salary)
+                @Html.TextBoxFor(m => m.Salary)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.JoinDate)
+                @Html.TextBoxFor(m => m.JoinDate,new { @type = "date" })
+            </li>
+             <li>
+                @Html.LabelFor(m => m.Degree)
+                @Html.TextBoxFor(m => m.Degree)
+            </li>
+           <li>
+               @Html.LabelFor(m => m.CellPhones)
+                @Html.TextBoxFor(m => m.CellPhones[0].PhoneNumber)
+           </li>
+
+
+        </ol>
+        <input type="submit" value="Create" />
+    </fieldset>
+   
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,24 @@
+﻿@model FabricsFactoryMethodPattern.Entities.Customer
+@{
+    ViewBag.Title = "View";
+}
+
+<hgroup class="title">
+    <h1>View</h1>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+   <ul>
+       <li>@Html.ActionLink("View Customer","ViewCustomer","Show")</li>
+       <li>@Html.ActionLink("View Supplier","ViewSupplier","Show")</li>
+       <li>@Html.ActionLink("View Empoyee","ViewEmployee","Show")</li>
+
+   </ul>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

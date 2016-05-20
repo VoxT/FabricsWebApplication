@@ -177,8 +177,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddController.cs" />
     <Compile Include="Controllers\CreateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShowController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -298,8 +300,16 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Create\Create.cshtml" />
-    <Content Include="Views\Create\ViewExample.cshtml" />
-    <Content Include="Views\Create\AddPrices.cshtml" />
+    <Content Include="Views\Show\ViewCustomer.cshtml" />
+    <Content Include="Views\Add\AddPrices.cshtml" />
+    <Content Include="Views\Create\CreateCustomer.cshtml" />
+    <Content Include="Views\Show\View1.cshtml" />
+    <Content Include="Views\Add\Add.cshtml" />
+    <Content Include="Views\Create\CreateSupplier.cshtml" />
+    <Content Include="Views\Show\ViewSupplier.cshtml" />
+    <Content Include="Views\Create\CreateEmployee.cshtml" />
+    <Content Include="Views\Show\ViewEmployee.cshtml" />
+    <Content Include="Views\Create\CreateOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
