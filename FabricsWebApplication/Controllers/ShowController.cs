@@ -51,6 +51,28 @@ namespace FabricsWebApplication.Controllers
 
             return View(model);
         }
+
+        public ActionResult ViewSalesOrder()
+        {
+            SalesOrderService salesOrder = new SalesOrderService();
+
+            List<SalesOrder> model = new List<SalesOrder>();
+
+            model = salesOrder.GetAll();
+
+            return View(model);
+        }
+
+        public ActionResult ViewFabrics()
+        {
+            FabricsService fabrics = new FabricsService();
+
+            List<Fabrics> model = new List<Fabrics>();
+
+            model = fabrics.GetAll();
+
+            return View(model);
+        }
         
     }
 }

@@ -1,0 +1,33 @@
+﻿@model FabricsFactoryMethodPattern.Entities.FabricsColor
+@{
+    ViewBag.Title = "FabricsColor";
+}
+
+<hgroup class="title">
+    <h2>Create a @ViewBag.Title</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.ColorName)
+                @Html.TextBoxFor(m => m.ColorName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.FabricsId)
+                @Html.DropDownListFor(m => m.FabricsId,(IEnumerable<SelectListItem>)ViewData["id"])
+            </li>
+        </ol>
+        <input type="submit" value="Create" />
+    </fieldset>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

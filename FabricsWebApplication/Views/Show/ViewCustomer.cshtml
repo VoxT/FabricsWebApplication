@@ -1,11 +1,10 @@
 ﻿@model IEnumerable<FabricsFactoryMethodPattern.Entities.Customer>
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Customer";
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>Create a new account.</h2>
+    <h2>Customer List</h2>
 </hgroup>
 
 @using (Html.BeginForm()) {
@@ -23,7 +22,6 @@
             <th>DeskPhone</th>
             <th>AccountNumber</th>
             <th>BankName</th>
-            <th>Price</th>
 
         </tr>
        @foreach (var ex in Model) { 
@@ -47,22 +45,17 @@
                  </td>
 
                <td>
-             @Html.DisplayFor(modelItem => ex.CellPhones[0].PhoneNumber)
+                  @Html.DisplayFor(modelItem => ex.CellPhones[0].PhoneNumber)
                  </td>
                <td>
-             @Html.DisplayFor(modelItem => ex.DeskPhones)
+             @Html.DisplayFor(modelItem => ex.DeskPhones[0].PhoneNumber)
                  </td>
                 <td>
              @Html.DisplayFor(modelItem => ex.Bank.AccountNumber)
                  </td>
                <td>
              @Html.DisplayFor(modelItem => ex.Bank.BankName)
-                 </td>
-               @foreach(var p in  ex.Prices){
-               <td>
-                   
-             @Html.DisplayFor(modelItem => p.Price)
-                 </td>
+                </td>
                }
            </tr>           
        }

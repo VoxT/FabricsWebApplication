@@ -309,7 +309,11 @@
     <Content Include="Views\Show\ViewSupplier.cshtml" />
     <Content Include="Views\Create\CreateEmployee.cshtml" />
     <Content Include="Views\Show\ViewEmployee.cshtml" />
-    <Content Include="Views\Create\CreateOrder.cshtml" />
+    <Content Include="Views\Create\CreateSalesOrder.cshtml" />
+    <Content Include="Views\Show\ViewSalesOrder.cshtml" />
+    <Content Include="Views\Create\CreateFabrics.cshtml" />
+    <Content Include="Views\Show\ViewFabrics.cshtml" />
+    <Content Include="Views\Create\CreateFabricsColor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

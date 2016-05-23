@@ -48,6 +48,15 @@ namespace FabricsWebApplication.Controllers
 
         public ActionResult CreateFabricsColor()
         {
+            FabricsService fabricsService = new FabricsService();
+            var listFabrics = fabricsService.GetAll();
+            List<SelectListItem> listId = new List<SelectListItem>();
+            foreach (var fabrics in listFabrics)
+            {
+                listId.Add(new SelectListItem() { Value = fabrics.Id.ToString(), Text = fabrics.Id.Increment.ToString(), Selected = true });
+            }
+            
+            @ViewData["id"] = listId;
             return View();
         }
 
@@ -76,7 +85,7 @@ namespace FabricsWebApplication.Controllers
             return View();
         }
 
-        public ActionResult CreateOrder()
+        public ActionResult CreateSalesOrder()
         {
             return View();
         }
@@ -102,15 +111,15 @@ namespace FabricsWebApplication.Controllers
 
         public ActionResult CreateCustomer(Customer models)
         {
-           Connection connect = new Connection();
-           
+            Connection connect = new Connection();
+
             CustomerService customer = new CustomerService();
-            
+
 
             customer.Create(models);
 
             return RedirectToAction("ViewCustomer", "Show");
-         
+
         }
 
         //create Sipplier
@@ -139,12 +148,52 @@ namespace FabricsWebApplication.Controllers
         {
             EmloyeeService employee = new EmloyeeService();
 
-           
+
             employee.Create(models);
 
             return RedirectToAction("ViewEmployee", "Show");
 
         }
-        
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateSalesOrder(SalesOrder models)
+        {
+            SalesOrderService salesOrder = new SalesOrderService();
+
+
+            salesOrder.Create(models);
+
+            return RedirectToAction("ViewSalesOrder", "Show");
+
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateFabrics(Fabrics models)
+        {
+            FabricsService fabrics = new FabricsService();
+
+
+            fabrics.Create(models);
+
+            return RedirectToAction("ViewFabrics", "Show");
+
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateFabricsColor(FabricsColor models)
+        {
+            FabricsColorService fabricsColor = new FabricsColorService();
+
+            fabricsColor.Create(models);
+
+            return RedirectToAction("ViewFabrics", "Show");
+
+        }
     }
 }

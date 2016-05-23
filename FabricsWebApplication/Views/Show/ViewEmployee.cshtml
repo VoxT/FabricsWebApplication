@@ -4,8 +4,7 @@
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>Create a new account.</h2>
+    <h2>Employee List</h2>
 </hgroup>
 
 @using (Html.BeginForm()) {
@@ -57,10 +56,10 @@
              @Html.DisplayFor(modelItem => ex.Salary)
                  </td>
                <td>
-             @Html.DisplayFor(modelItem => ex.CellPhones)
+             @Html.DisplayFor(modelItem => ex.CellPhones[0].PhoneNumber)
                  </td>
                <td>
-             @Html.DisplayFor(modelItem => ex.DeskPhones)
+             @Html.DisplayFor(modelItem => ex.DeskPhones[0].PhoneNumber)
                  </td>
                 <td>
              @Html.DisplayFor(modelItem => ex.JoinDate)

@@ -51,15 +51,35 @@
                 @Html.TextBoxFor(m => m.Degree)
             </li>
            <li>
-               @Html.LabelFor(m => m.CellPhones)
-                @Html.TextBoxFor(m => m.CellPhones[0].PhoneNumber)
-           </li>
+                @Html.LabelFor(m => m.CellPhones)
+                @Html.TextBoxFor(m => m.CellPhones[0].PhoneNumber, new { @class = "cellPhone"})
+                <button type ="button" onclick ="addCellPhone()" class ="cellbutton ">Add</button>
+            </li>
+            <li>
+                @Html.LabelFor(m => m.DeskPhones)
+                @Html.TextBoxFor(m => m.DeskPhones[0].PhoneNumber, new { @class = "deskPhone"})
+                <button type ="button" onclick ="addDeskPhone()" class ="deskbutton">Add</button>
+            </li>
 
 
         </ol>
         <input type="submit" value="Create" />
     </fieldset>
-   
+    <script>
+        function addCellPhone() {
+            var count = parseInt($(".cellPhone").last().attr("id").substring(11));
+            count += 1;
+            $(".cellbutton" ).before('<br/>' + '<input class="cellPhone" id="CellPhones_'+count+'__PhoneNumber" name="CellPhones[' +count+ '].PhoneNumber" type="text" value="">');
+
+        }
+        function addDeskPhone() {
+            var count = parseInt($(".deskPhone").last().attr("id").substring(11));
+            count += 1;
+            $(".deskbutton").before('<br/>' + '<input class="deskPhone" id="DeskPhones_' + count + '__PhoneNumber" name="DeskPhones[' + count + '].PhoneNumber" type="text" value="">');
+
+        }
+
+    </script>
 }
 
 @section Scripts {
