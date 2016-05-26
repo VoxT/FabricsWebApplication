@@ -1,0 +1,62 @@
+﻿@model FabricsFactoryMethodPattern.Entities.Payment
+@{
+    ViewBag.Title = "PaymentForSupplier";
+}
+
+<hgroup class="title">
+    <h2>Create a @ViewBag.Title</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.EmployeeId)
+                @Html.DropDownListFor(m => m.EmployeeId,(IEnumerable<SelectListItem>)ViewData["EmployeeId"])
+            </li>
+
+            <li>
+                @Html.LabelFor(m => m.SupplierId)
+                @Html.DropDownListFor(m => m.SupplierId,(IEnumerable<SelectListItem>)ViewData["SupplierId"])
+            </li>
+             <li>
+                @Html.LabelFor(m => m.Money)
+                @Html.TextBoxFor(m => m.Money)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.RecipientOrSender)
+                @Html.TextBoxFor(m => m.RecipientOrSender)
+            </li>
+             <li>
+                @Html.LabelFor(m => m.PaymentMethod)
+                @Html.DropDownListFor(m => m.PaymentMethod,(IEnumerable<SelectListItem>)ViewData["paymentMethod"])
+            </li>
+             <li>
+                @Html.LabelFor(m => m.BankName)
+                @Html.TextBoxFor(m => m.BankName)
+            </li>
+             <li>
+                @Html.LabelFor(m => m.AccountNumber)
+                @Html.TextBoxFor(m => m.AccountNumber)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Time)
+                @Html.TextBoxFor(m => m.Time, new {@type = "date" })
+            </li>
+              <li>
+                @Html.LabelFor(m => m.PaymentType)
+                @Html.DropDownListFor(m => m.PaymentType,(IEnumerable<SelectListItem>)ViewData["paymentType"])
+            </li>
+        </ol>
+        <input type="submit" value="Create" />
+    </fieldset>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

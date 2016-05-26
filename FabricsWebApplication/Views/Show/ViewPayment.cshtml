@@ -1,0 +1,72 @@
+﻿@model IEnumerable<FabricsFactoryMethodPattern.Entities.Payment>
+@{
+    ViewBag.Title = "Payment";
+}
+
+<hgroup class="title">
+    <h2>@ViewBag.Title List</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <table style ="border : 2px solid">
+        <tr>
+            <th>Id</th>
+            <th>EmployeeId</th>
+            <th>SupplierId</th>
+            <th>CustomerId</th>
+            <th>Money</th>
+            <th>PaymentType</th>
+            <th>PaymentMethod</th>
+            <th>BankName</th>
+            <th>AccountNumber</th>
+            <th>Time</th>
+            <th>RecipientOrSender</th>
+        </tr>
+       @foreach (var ex in Model) { 
+           <tr> 
+                 <td>
+             @Html.DisplayFor(modelItem => ex.Id.Increment)
+                 </td>
+                <td>
+             @Html.DisplayFor(modelItem => ex.EmployeeId.Increment)
+                 </td>
+               <td>
+             @Html.DisplayFor(modelItem => ex.SupplierId.Increment)
+                 </td>
+
+               <td>
+             @Html.DisplayFor(modelItem => ex.CustomerId.Increment)
+                 </td>
+                <td>
+             @Html.DisplayFor(modelItem => ex.Money)
+                 </td>
+               <td>
+             @Html.DisplayFor(modelItem => ex.PaymentType)
+                 </td>
+                 <td>
+             @Html.DisplayFor(modelItem => ex.PaymentMethod)
+                 </td>
+                 <td>
+             @Html.DisplayFor(modelItem => ex.BankName)
+                 </td>
+                 <td>
+             @Html.DisplayFor(modelItem => ex.AccountNumber)
+                 </td>
+                 <td>
+             @Html.DisplayFor(modelItem => ex.Time)
+                 </td>
+                 <td>
+             @Html.DisplayFor(modelItem => ex.RecipientOrSender)
+                 </td>
+           </tr>           
+       }
+    </table>
+   
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

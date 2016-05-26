@@ -1,0 +1,48 @@
+﻿@model IEnumerable<FabricsFactoryMethodPattern.Entities.FabricsRoll>
+@{
+    ViewBag.Title = "FabricsRoll";
+}
+
+<hgroup class="title">
+    <h2>FabricsColor List</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <table>
+        <tr>
+            <th>IdFabricsRoll</th>
+            <th>PurchaseInvoiceId</th>
+            <th>SalesInvoiceId</th>
+            <th>FabricsColorId</th>
+            <th>FabricsPlotsId</th>
+        </tr>
+       @foreach (var ex in Model) { 
+       
+           <tr> 
+                <td>
+             @Html.DisplayFor(modelItem => ex.Id.Increment)
+                 </td>
+               <td>
+             @Html.DisplayFor(modelItem => ex.PurchaseInvoiceId.Increment)
+                 </td>  
+                 <td>
+             @Html.DisplayFor(modelItem => ex.SalesInvoiceId.Increment)
+                 </td>
+                 <td>
+             @Html.DisplayFor(modelItem => ex.FabricsColorId.Increment)
+                 </td>
+                 <td>
+             @Html.DisplayFor(modelItem => ex.PlotsId.Increment)
+                 </td>
+           </tr>           
+       }
+    </table>
+   
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

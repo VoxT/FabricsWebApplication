@@ -1,10 +1,10 @@
-﻿@model IEnumerable<FabricsFactoryMethodPattern.Entities.Fabrics>
+﻿@model IEnumerable<FabricsFactoryMethodPattern.Entities.Record>
 @{
     ViewBag.Title = "Fabrics";
 }
 
 <hgroup class="title">
-    <h2>Fabrics List</h2>
+    <h2>@ViewBag.Title List</h2>
 </hgroup>
 
 @using (Html.BeginForm()) {
@@ -13,9 +13,11 @@
 
     <table>
         <tr>
-            <th>IdFabrics</th>
-            <th>Name</th>
-            <th>Description</th>
+            <th>Id</th>
+            <th>PaymentId</th>
+            <th>Money</th>
+            <th>Time</th>
+            <th>Note</th>
         </tr>
        @foreach (var ex in Model) { 
        
@@ -24,10 +26,16 @@
              @Html.DisplayFor(modelItem => ex.Id.Increment)
                  </td>
                <td>
-             @Html.DisplayFor(modelItem => ex.Name)
+             @Html.DisplayFor(modelItem => ex.PaymentId.Increment)
                  </td>  
                  <td>
-             @Html.DisplayFor(modelItem => ex.Description)
+             @Html.DisplayFor(modelItem => ex.Monney)
+                 </td>
+                 <td>
+             @Html.DisplayFor(modelItem => ex.Time)
+                 </td>
+                 <td>
+             @Html.DisplayFor(modelItem => ex.Note)
                  </td>
            </tr>           
        }

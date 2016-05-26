@@ -7,7 +7,8 @@
     <h2>Customer List</h2>
 </hgroup>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
@@ -24,41 +25,41 @@
             <th>BankName</th>
 
         </tr>
-       @foreach (var ex in Model) { 
+        @foreach (var ex in Model)
+        { 
        
-           <tr> 
+            <tr>
                 <td>
-             @Html.DisplayFor(modelItem => ex.Id.Increment)
-                 </td>
-               <td>
-             @Html.DisplayFor(modelItem => ex.FirstName)
-                 </td>
-
-               <td>
-             @Html.DisplayFor(modelItem => ex.LastName)
-                 </td>
-               <td>
-             @Html.DisplayFor(modelItem => ex.Email)
-                 </td>
-                 <td>
-             @Html.DisplayFor(modelItem => ex.Address)
-                 </td>
-
-               <td>
-                  @Html.DisplayFor(modelItem => ex.CellPhones[0].PhoneNumber)
-                 </td>
-               <td>
-             @Html.DisplayFor(modelItem => ex.DeskPhones[0].PhoneNumber)
-                 </td>
-                <td>
-             @Html.DisplayFor(modelItem => ex.Bank.AccountNumber)
-                 </td>
-               <td>
-             @Html.DisplayFor(modelItem => ex.Bank.BankName)
+                    @Html.DisplayFor(modelItem => ex.Id.Increment)
                 </td>
-               }
-           </tr>           
-       }
+                <td>
+                    @Html.DisplayFor(modelItem => ex.FirstName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => ex.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => ex.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => ex.Address)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => ex.CellPhones[0].PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => ex.DeskPhones[0].PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => ex.Bank.AccountNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => ex.Bank.BankName)
+                </td>
+            </tr>           
+        }
     </table>
    
 }

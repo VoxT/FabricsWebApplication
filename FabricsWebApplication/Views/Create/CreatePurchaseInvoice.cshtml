@@ -1,0 +1,55 @@
+﻿@model FabricsFactoryMethodPattern.Entities.PurchaseInvoice
+@{
+    ViewBag.Title = "PurchaseInvoice";
+}
+
+<hgroup class="title">
+    <h2>Create a @ViewBag.Title</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.EmployeeId)
+                @Html.DropDownListFor(m => m.EmployeeId,(IEnumerable<SelectListItem>)ViewData["EmployeeId"])
+            </li>
+
+            <li>
+                @Html.LabelFor(m => m.SupplierId)
+                @Html.DropDownListFor(m => m.SupplierId,(IEnumerable<SelectListItem>)ViewData["SupplierId"])
+            </li>
+            
+            <li>
+                @Html.LabelFor(m => m.PurchaseOrderId)
+                @Html.DropDownListFor(m => m.PurchaseOrderId,(IEnumerable<SelectListItem>)ViewData["PurchaseOrderId"])
+            </li>
+            <li>
+                @Html.LabelFor(m => m.WareHouseId)
+                @Html.DropDownListFor(m => m.WareHouseId,(IEnumerable<SelectListItem>)ViewData["WareHouseId"])
+            </li>
+             <li>
+                @Html.LabelFor(m => m.PaymentMethod)
+                @Html.TextBoxFor(m => m.PaymentMethod)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Time)
+                @Html.TextBoxFor(m => m.Time, new {@type = "date" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.DiscountPercent)
+                @Html.TextBoxFor(m => m.DiscountPercent)
+            </li>
+        </ol>
+        <input type="submit" value="Create" />
+    </fieldset>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

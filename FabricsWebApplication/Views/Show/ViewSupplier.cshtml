@@ -22,6 +22,7 @@
             <th>DeskPhone</th>
             <th>AccountNumber</th>
             <th>BankName</th>
+            <th>Debt</th>
         </tr>
        @foreach (var ex in Model) { 
        
@@ -55,7 +56,9 @@
                <td>
              @Html.DisplayFor(modelItem => ex.Bank.BankName)
                  </td>
-              
+              <td>
+                  @ViewData[ex.Id.ToString()]
+              </td>
            </tr>           
        }
     </table>

@@ -16,11 +16,26 @@
         <legend>Registration Form</legend>
         <ol>
             <li>
+                @Html.Label("SuppierId")
+                  @Html.DropDownList("id",(IEnumerable<SelectListItem>)ViewData["SupplierId"])
+            </li>
+
+            <li>
                 @Html.LabelFor(m => m.Price)
                 @Html.TextBoxFor(m => m.Price,new { @type = "number" })
             </li>
 
+            <li>
+                @Html.LabelFor(m => m.FabricsColorId)
+                 @Html.DropDownListFor(m => m.FabricsColorId,(IEnumerable<SelectListItem>)ViewData["fabricsColorId"])
+            </li>
+             <li>
+                @Html.LabelFor(m => m.Time)
+                @Html.TextBoxFor(m => m.Time, new { @type = "date" })
+            </li>
 
+
+                
         </ol>
         <input type="submit" value="AddPrices" />
     </fieldset>

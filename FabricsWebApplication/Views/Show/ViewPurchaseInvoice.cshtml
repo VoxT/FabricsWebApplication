@@ -1,0 +1,60 @@
+﻿@model IEnumerable<FabricsFactoryMethodPattern.Entities.PurchaseInvoice>
+@{
+    ViewBag.Title = "Supplier";
+}
+
+<hgroup class="title">
+    <h2>PurchaseInvoice List</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <table style ="border : 2px solid">
+        <tr>
+            <th>Id</th>
+            <th>EmployeeId</th>
+            <th>SupplierId</th>
+            <th>PurchaseOrderId</th>
+            <th>WareHouseId</th>
+            <th>PaymentMethod</th>
+            <th>Time</th>
+            <th>TotalMoney</th>
+        </tr>
+       @foreach (var ex in Model) { 
+           <tr> 
+                 <td>
+             @Html.DisplayFor(modelItem => ex.Id.Increment)
+                 </td>
+                <td>
+             @Html.DisplayFor(modelItem => ex.EmployeeId.Increment)
+                 </td>
+               <td>
+             @Html.DisplayFor(modelItem => ex.SupplierId.Increment)
+                 </td>
+
+               <td>
+             @Html.DisplayFor(modelItem => ex.PurchaseOrderId.Increment)
+                 </td>
+               <td>
+             @Html.DisplayFor(modelItem => ex.WareHouseId.Increment)
+                 </td>
+                 <td>
+             @Html.DisplayFor(modelItem => ex.PaymentMethod)
+                 </td>
+                 <td>
+             @Html.DisplayFor(modelItem => ex.Time)
+                 </td>
+               <td>
+                   @ViewData[ex.SupplierId.ToString()]
+               </td>
+           </tr>           
+       }
+    </table>
+   
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

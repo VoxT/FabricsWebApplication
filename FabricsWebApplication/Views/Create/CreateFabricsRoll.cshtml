@@ -1,0 +1,43 @@
+﻿@model FabricsFactoryMethodPattern.Entities.FabricsRoll
+@{
+    ViewBag.Title = "FabricsRoll";
+}
+
+<hgroup class="title">
+    <h2>Create a @ViewBag.Title</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.PurchaseInvoiceId)
+                @Html.DropDownListFor(m => m.PurchaseInvoiceId,(IEnumerable<SelectListItem>)ViewData["purchaseInvoiceId"])
+            </li>
+
+            <li>
+                @Html.LabelFor(m => m.FabricsColorId)
+                @Html.DropDownListFor(m => m.FabricsColorId,(IEnumerable<SelectListItem>)ViewData["fabricsColorId"])
+            </li>
+            
+            <li>
+                @Html.LabelFor(m => m.PlotsId)
+                @Html.DropDownListFor(m => m.PlotsId,(IEnumerable<SelectListItem>)ViewData["fabricsPlotsId"])
+            </li>
+             <li>
+                @Html.LabelFor(m => m.Length)
+                @Html.TextBoxFor(m => m.Length)
+            </li>
+        </ol>
+        <input type="submit" value="Create" />
+    </fieldset>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

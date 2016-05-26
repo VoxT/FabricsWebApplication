@@ -19,29 +19,41 @@ namespace FabricsWebApplication.Controllers
 
             return View();
         }
-        public ActionResult AddPrices()
+        public ActionResult AddPricesForSupplier()
         {
+            //get list SupplierId
+            SupplierService supplier = new SupplierService();
+            var listSupplier = supplier.GetAll();
+            List<SelectListItem> listSupplierId = new List<SelectListItem>();
+            foreach (var sup in listSupplier)
+            {
+                listSupplierId.Add(new SelectListItem() { Value = sup.Id.ToString(), Text = sup.Id.Increment.ToString(), Selected = true });
+            }
+            //return to view
+            @ViewData["SupplierId"] = listSupplierId;
+
+            FabricsColorService fabricsColor = new FabricsColorService();
+            var listFabricsColor = fabricsColor.GetAll();
+            List<SelectListItem> listFabricsColorId = new List<SelectListItem>();
+            foreach (var fab in listFabricsColor)
+            {
+                listFabricsColorId.Add(new SelectListItem() { Value = fab.Id.ToString(), Text = fab.ColorName, Selected = true });
+            }
+
+            @ViewData["fabricsColorId"] = listFabricsColorId;
 
             return View();
         }
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult AddPrices(Prices pricess)
+        public ActionResult AddPricesForSupplier(Prices pricess,string id)
         {
-            Connection connect = new Connection();
+            SupplierService supplier = new SupplierService();
 
-            CustomerService customer = new CustomerService();
-            var id = customer.GetAll().FirstOrDefault().Id.ToString();
-            // price.FabricsColorId = new ObjectId();
-            Prices p = new Prices
-            {
-                Price = pricess.Price,
-                FabricsColorId = new ObjectId()
-            };
-            customer.AddFabricsPrice(id, p);
+            supplier.AddFabricsPrice(id, pricess);
 
-            return RedirectToAction("ViewCustomer", "Show");
+            return RedirectToAction("ViewSupplier", "Show");
         }
     }
 }

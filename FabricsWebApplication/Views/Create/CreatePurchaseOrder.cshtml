@@ -1,6 +1,6 @@
-﻿@model FabricsFactoryMethodPattern.Entities.SalesOrder
+﻿@model FabricsFactoryMethodPattern.Entities.PurchaseOrder
 @{
-    ViewBag.Title = "SalesOrder";
+    ViewBag.Title = "PurchaseOrder";
 }
 
 <hgroup class="title">
@@ -15,8 +15,8 @@
         <legend>Registration Form</legend>
         <ol >
             <li>
-                @Html.LabelFor(m => m.CustomerId)
-               @Html.DropDownList("CustomerId",(IEnumerable<SelectListItem>)ViewData["CustomerId"])
+                @Html.LabelFor(m => m.EmployeeId)
+                @Html.DropDownListFor(m => m.EmployeeId,(IEnumerable<SelectListItem>)ViewData["EmployeeId"])
             </li>
             <li>
                 @Html.LabelFor(m => m.Time)
@@ -25,7 +25,7 @@
             </ol>
             <ol >
             <li style ="display:inline-block">
-                @Html.Label("FabricColor Name")
+                @Html.LabelFor(m => m.Goods[0].FabricsColorId)
                 @Html.DropDownListFor(m => m.Goods[0].FabricsColorId,(IEnumerable<SelectListItem>)ViewData["FabricsColorId"],new { @class = "fabricsColorId"})
             </li>
             <li style ="display:inline-block">
@@ -46,12 +46,11 @@
     </fieldset>
      <script>
         function addMore() {
-               var count = parseInt($(".fabricsColorId").last().attr("id").substring(6));
-               count += 1;
-              
-             
+            var count = parseInt($(".fabricsColorId").last().attr("id").substring(6));
+            count += 1;
             $(".more").before('<li style ="display:inline-block">' +
-                '<select class="fabricsColorId input-validation-error" data-val="true" data-val-number="The field Increment must be a number." data-val-required="The Increment field is required." id="Goods_'+count+'__FabricsColorId_Increment" name="Goods['+count+'].FabricsColorId">'+'</select></li>' +
+                '<input class="fabricsColorId" data-val="true" data-val-required="The FabricsColorId field is required." id="Goods_' + count +
+                '__FabricsColorId" name="Goods[' + count + '].FabricsColorId" type="text" value=""></li>' +
                 '<li style ="display:inline-block">' +
                 '<input data-val="true" data-val-number="The field TotalRoll must be a number." data-val-required="The TotalRoll field is required." id="Goods_' + count + '__TotalRoll" name="Goods[' + count + '].TotalRoll" type="text" value=""></li>' +
                 '<li style ="display:inline-block">' +

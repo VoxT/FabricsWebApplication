@@ -1,6 +1,6 @@
-﻿@model IEnumerable<FabricsFactoryMethodPattern.Entities.Fabrics>
+﻿@model IEnumerable<FabricsFactoryMethodPattern.Entities.FabricsPlots>
 @{
-    ViewBag.Title = "Fabrics";
+    ViewBag.Title = "FabricsPlots";
 }
 
 <hgroup class="title">
@@ -14,22 +14,17 @@
     <table>
         <tr>
             <th>IdFabrics</th>
-            <th>Name</th>
-            <th>Description</th>
+            <th>Time</th>
         </tr>
-       @foreach (var ex in Model) { 
-       
+       @foreach (var ex in Model) {
            <tr> 
                 <td>
              @Html.DisplayFor(modelItem => ex.Id.Increment)
                  </td>
                <td>
-             @Html.DisplayFor(modelItem => ex.Name)
-                 </td>  
-                 <td>
-             @Html.DisplayFor(modelItem => ex.Description)
-                 </td>
-           </tr>           
+             @Html.DisplayFor(modelItem => ex.Time)
+                 </td> 
+            </tr>   
        }
     </table>
    

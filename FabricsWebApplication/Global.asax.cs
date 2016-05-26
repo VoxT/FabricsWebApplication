@@ -6,6 +6,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace FabricsWebApplication
 {
@@ -22,7 +24,8 @@ namespace FabricsWebApplication
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AuthConfig.RegisterAuth();
+            AuthConfig.RegisterAuth(); 
+            ModelBinders.Binders.Add(typeof(ObjectId), new ObjectIdBinder());
         }
     }
 }
