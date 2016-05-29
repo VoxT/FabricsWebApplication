@@ -60,6 +60,10 @@
                 @Html.TextBoxFor(m => m.DeskPhones[0].PhoneNumber, new { @class = "deskPhone"})
                 <button type ="button" onclick ="addDeskPhone()" class ="deskbutton">Add</button>
             </li>
+             <li>
+                @Html.LabelFor(m => m.DriverLincenseNumber)
+                @Html.TextBoxFor(m => m.DriverLincenseNumber)
+            </li>
 
 
         </ol>

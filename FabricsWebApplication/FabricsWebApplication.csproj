@@ -329,6 +329,7 @@
     <Content Include="Views\Create\CreatePaymentForSupplier.cshtml" />
     <Content Include="Views\Show\ViewPayment.cshtml" />
     <Content Include="Views\Show\ViewRecord.cshtml" />
+    <Content Include="Views\Create\CreateDelivery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

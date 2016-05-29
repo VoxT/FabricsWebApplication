@@ -47,7 +47,7 @@ namespace FabricsWebApplication.Controllers
 
         public ActionResult ViewEmployee()
         {
-            EmloyeeService employee = new EmloyeeService();
+            EmployeeService employee = new EmployeeService();
 
             List<Employee> model = new List<Employee>();
 

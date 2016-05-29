@@ -39,11 +39,12 @@ namespace FabricsWebApplication.Controllers
         public ActionResult CreatePurchaseInvoice()
         {
             //get list EmployeeId
-            EmloyeeService employee = new EmloyeeService();
+            EmployeeService employee = new EmployeeService();
             var listEmployee = employee.GetAll();
             List<SelectListItem> listEmployeeId = new List<SelectListItem>();
             foreach (var emp in listEmployee)
             {
+                if(emp.DriverLincenseNumber == null)
                 listEmployeeId.Add(new SelectListItem() { Value = emp.Id.ToString(), Text = emp.Id.Increment.ToString(), Selected = true });
             }
             //return to view
@@ -87,6 +88,40 @@ namespace FabricsWebApplication.Controllers
 
         public ActionResult CreateSalesInvoice()
         {
+
+            //get list EmployeeId
+            EmployeeService employee = new EmployeeService();
+            var listEmployee = employee.GetAll();
+            List<SelectListItem> listEmployeeId = new List<SelectListItem>();
+            foreach (var emp in listEmployee)
+            {
+                if (emp.DriverLincenseNumber == null)
+                    listEmployeeId.Add(new SelectListItem() { Value = emp.Id.ToString(), Text = emp.Id.Increment.ToString(), Selected = true });
+            }
+            //return to view
+            @ViewData["EmployeeId"] = listEmployeeId;
+
+            //get list customer
+            CustomerService customer = new CustomerService();
+            var listCustomer = customer.GetAll();
+            List<SelectListItem> listCustomerId = new List<SelectListItem>();
+            foreach (var cus in listCustomer)
+            {
+                listCustomerId.Add(new SelectListItem() { Value = cus.Id.ToString(), Text = cus.Id.Increment.ToString(), Selected = true });
+            }
+            //return to view
+            @ViewData["CustomerId"] = listCustomerId;
+
+            //Get list purchaseOrder
+            PurchaseOrderService purchaseOrderService = new PurchaseOrderService();
+            var listOrderInvoice = purchaseOrderService.GetAll();
+            List<SelectListItem> listOrderInvoiceId = new List<SelectListItem>();
+            foreach (var purchaseOrder in listOrderInvoice)
+            {
+                listOrderInvoiceId.Add(new SelectListItem() { Value = purchaseOrder.Id.ToString(), Text = purchaseOrder.Id.Increment.ToString(), Selected = true });
+            }
+            //return to view
+            @ViewData["PurchaseOrderId"] = listOrderInvoiceId;            
 
             return View();
         }
@@ -155,14 +190,21 @@ namespace FabricsWebApplication.Controllers
             return View();
         }
 
-        public ActionResult CreateGoods()
+        public ActionResult CreateDelivery()
         {
-            return View();
-        }
+            //get list ShiperId
+            EmployeeService employee = new EmployeeService();
+            var listEmployee = employee.GetShipper();
+            List<SelectListItem> listEmployeeId = new List<SelectListItem>();
+            foreach (var emp in listEmployee)
+            {
+                listEmployeeId.Add(new SelectListItem() { Value = emp.Id.ToString(), Text = emp.Id.Increment.ToString(), Selected = true });
+            }
+            //return to view
+            @ViewData["ShipperId"] = listEmployeeId;
 
-        public ActionResult CreateGoodsreturn()
-        {
             return View();
+        
         }
 
         public ActionResult CreateLeave()
@@ -198,11 +240,12 @@ namespace FabricsWebApplication.Controllers
         public ActionResult CreatePurchaseOrder()
         {
             //get list EmployeeId
-            EmloyeeService employee = new EmloyeeService();
+            EmployeeService employee = new EmployeeService();
             var listEmployee = employee.GetAll();
             List<SelectListItem> listEmployeeId = new List<SelectListItem>();
             foreach (var emp in listEmployee)
             {
+                if (emp.DriverLincenseNumber == null)
                 listEmployeeId.Add(new SelectListItem() { Value = emp.Id.ToString(), Text = emp.Id.Increment.ToString(), Selected = true });
             }
             //return to view
@@ -226,11 +269,12 @@ namespace FabricsWebApplication.Controllers
         public ActionResult CreatePaymentForSupplier()
         {
             //get list EmployeeId
-            EmloyeeService employee = new EmloyeeService();
+            EmployeeService employee = new EmployeeService();
             var listEmployee = employee.GetAll();
             List<SelectListItem> listEmployeeId = new List<SelectListItem>();
             foreach (var emp in listEmployee)
             {
+                if (emp.DriverLincenseNumber == null)
                 listEmployeeId.Add(new SelectListItem() { Value = emp.Id.ToString(), Text = emp.Id.Increment.ToString(), Selected = true });
             }
             //return to view
@@ -311,7 +355,7 @@ namespace FabricsWebApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateEmployee(Employee models)
         {
-            EmloyeeService employee = new EmloyeeService();
+            EmployeeService employee = new EmployeeService();
 
             employee.Create(models);
 
