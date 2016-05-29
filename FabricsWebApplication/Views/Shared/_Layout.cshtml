@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+        @Scripts.Render("~/bundles/modernizr")
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -6,49 +8,38 @@
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     <body>
         <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-                    <br />
+            <div class="container">
                     <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                             <li>@Html.ActionLink("Create", "Create", "Create")</li>
-                            <li>@Html.ActionLink("View", "View1", "Show")</li>
-                            <li>@Html.ActionLink("Add", "Add", "Add")</li>
+                        <ul class="nav nav-tabs">
+                            <li role="presentation">@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li role="presentation">@Html.ActionLink("Create", "Create", "Create")</li>
+                            <li role="presentation">@Html.ActionLink("View", "View1", "Show")</li>
+                            <li role="presentation">@Html.ActionLink("Add", "Add", "Add")</li>
                         </ul>
                     </nav>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    
-                </div>
-            </div>
+             </div>
         </header>
         <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody() 
+            <section class="container">
+                @RenderSection("featured", required: false)
+                @RenderBody()
             </section>
         </div>
         <footer>
-            <div class="content-wrapper">
+            <div class="container">
                 <div class="float-left">
                     <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
                 </div>
             </div>
         </footer>
-
+    </body>
         @Scripts.Render("~/bundles/jquery")
         @RenderSection("scripts", required: false)
-    </body>
 </html>
