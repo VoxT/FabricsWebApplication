@@ -10,13 +10,16 @@
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
-
-    <table>
+             
+  <table class="table table-hover">
+    <thead>
         <tr>
             <th>IdFabrics</th>
             <th>ColorName</th>
             <th>FabricsId</th>
         </tr>
+    </thead>
+    <tbody>
        @foreach (var ex in Model) { 
        
            <tr> 
@@ -31,6 +34,7 @@
                  </td>
            </tr>           
        }
+    </tbody>
     </table>
    
 }

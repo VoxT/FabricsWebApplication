@@ -1,11 +1,10 @@
 ﻿@model FabricsFactoryMethodPattern.Entities.Customer
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Customer";
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>Create a new account.</h2>
+    <h2>Create a new @ViewBag.Title.</h2>
 </hgroup>
 
 @using (Html.BeginForm()) {
@@ -58,7 +57,7 @@
               <div class="form-group">
                 <label class="col-sm-2" for="cellphone">Cell Numer:</label>
                 <div class="col-sm-10">
-                    @Html.TextBoxFor(m => m.CellPhones[0].PhoneNumber, new { @class = "form-control cellPhone", @id = "cellphone" })
+                    @Html.TextBoxFor(m => m.CellPhones[0].PhoneNumber, new { @class = "form-control cellPhone"})
                     <button type ="button" onclick ="addCellPhone()" class ="cellbutton ">Add</button>
 
                 </div>
@@ -67,7 +66,7 @@
               <div class="form-group">
                 <label class="col-sm-2" for="deskphone">Desk Number:</label>
                 <div class="col-sm-10">
-                    @Html.TextBoxFor(m => m.DeskPhones[0].PhoneNumber, new { @class = "form-control deskPhone", @id = "cellphone" })
+                    @Html.TextBoxFor(m => m.DeskPhones[0].PhoneNumber, new { @class = "form-control deskPhone"})
                     <button type ="button" onclick ="addDeskPhone()" class ="deskbutton">Add</button>
 
                 </div>

@@ -10,8 +10,9 @@
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
-
-    <table>
+             
+  <table class="table table-hover">
+    <thead>
         <tr>
             <th>Id</th>
             <th>First Name</th>
@@ -24,6 +25,8 @@
             <th>BankName</th>
             <th>Debt</th>
         </tr>
+    </thead>
+    <tbody>
        @foreach (var ex in Model) { 
        
            <tr> 
@@ -44,12 +47,19 @@
              @Html.DisplayFor(modelItem => ex.Address)
                  </td>
 
-               <td>
-             @Html.DisplayFor(modelItem => ex.CellPhones[0].PhoneNumber)
-                 </td>
-               <td>
-             @Html.DisplayFor(modelItem => ex.DeskPhones[0].PhoneNumber)
-                 </td>
+              <td>
+                    @foreach(var cellphone in ex.CellPhones)
+                    {
+                       <p>@Html.DisplayFor(modelItem => cellphone.PhoneNumber)</p>
+                    }
+                        
+                </td>
+                <td>
+                    @foreach(var deskphone in ex.DeskPhones)
+                    {
+                       <p>@Html.DisplayFor(modelItem => deskphone.PhoneNumber)</p>
+                    }
+                </td>
                 <td>
              @Html.DisplayFor(modelItem => ex.Bank.AccountNumber)
                  </td>
@@ -61,6 +71,7 @@
               </td>
            </tr>           
        }
+    </tbody>
     </table>
    
 }
