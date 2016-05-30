@@ -4,86 +4,102 @@
 }
 
 <hgroup class="title">
-    <h2>Create a new account @ViewBag.Title.</h2>
+    <h2>Create a new @ViewBag.Title.</h2>
 </hgroup>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <fieldset>
-        <legend>Registration Form</legend>
-        <ol>
-            <li>
-                @Html.Label("First Name:")
-                @Html.TextBoxFor(m => m.FirstName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.LastName)
-                @Html.TextBoxFor(m => m.LastName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.BirthDate)
-                @Html.TextBoxFor(m => m.BirthDate,new { @type = "date", })
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Email)
-                @Html.TextBoxFor(m => m.Email)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Address)
-                @Html.TextBoxFor(m => m.Address)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.IdentityCardNumber)
-                @Html.TextBoxFor(m => m.IdentityCardNumber)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Salary)
-                @Html.TextBoxFor(m => m.Salary)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.JoinDate)
-                @Html.TextBoxFor(m => m.JoinDate,new { @type = "date" })
-            </li>
-             <li>
-                @Html.LabelFor(m => m.Degree)
-                @Html.TextBoxFor(m => m.Degree)
-            </li>
-           <li>
-                @Html.LabelFor(m => m.CellPhones)
-                @Html.TextBoxFor(m => m.CellPhones[0].PhoneNumber, new { @class = "cellPhone"})
-                <button type ="button" onclick ="addCellPhone()" class ="cellbutton ">Add</button>
-            </li>
-            <li>
-                @Html.LabelFor(m => m.DeskPhones)
-                @Html.TextBoxFor(m => m.DeskPhones[0].PhoneNumber, new { @class = "deskPhone"})
-                <button type ="button" onclick ="addDeskPhone()" class ="deskbutton">Add</button>
-            </li>
-             <li>
-                @Html.LabelFor(m => m.DriverLincenseNumber)
-                @Html.TextBoxFor(m => m.DriverLincenseNumber)
-            </li>
-
-
-        </ol>
-        <input type="submit" value="Create" />
-    </fieldset>
-    <script>
-        function addCellPhone() {
-            var count = parseInt($(".cellPhone").last().attr("id").substring(11));
-            count += 1;
-            $(".cellbutton" ).before('<br/>' + '<input class="cellPhone" id="CellPhones_'+count+'__PhoneNumber" name="CellPhones[' +count+ '].PhoneNumber" type="text" value="">');
-
-        }
-        function addDeskPhone() {
-            var count = parseInt($(".deskPhone").last().attr("id").substring(11));
-            count += 1;
-            $(".deskbutton").before('<br/>' + '<input class="deskPhone" id="DeskPhones_' + count + '__PhoneNumber" name="DeskPhones[' + count + '].PhoneNumber" type="text" value="">');
-
-        }
-
-    </script>
+    <div class="col-md-8 col-md-ofset-2">
+        <form  class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-sm-4" for="firstname">First Name:</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @id = "firstname" })
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-4" for="lastname">Last Name:</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @id = "lastname" })
+                </div>
+              </div>
+               <br />
+            <div class="form-group">
+                <label class="col-sm-4" for="bth">BirthDate:</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control", @id = "bth" ,@type = "date"})
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4" for="email">Email:</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @id = "email" })
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-4" for="address">Address:</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @id = "address" })
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-4" for="icd">Identity Card Number:</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.IdentityCardNumber, new { @class = "form-control", @id = "icd" })
+                </div>
+              </div>
+               <br />
+               <div class="form-group">
+                <label class="col-sm-4" for="salary">Salary:</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.Salary, new { @class = "form-control", @id = "salary" })
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-4" for="join">Join Date:</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.JoinDate, new { @class = "form-control", @id = "join", @type = "date" })
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-4" for="degree">Degree:</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.Degree, new { @class = "form-control", @id = "degree" })
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-4" for="lincese">Driver Lincense Number:</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.DriverLincenseNumber, new { @class = "form-control cellPhone", @id = "lincese" })
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4" for="cellphone">Cell Numer:</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.CellPhones[0].PhoneNumber, new { @class = "form-control cellPhone"})
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-4" for="deskphone">Desk Number:</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.DeskPhones[0].PhoneNumber, new { @class = "form-control deskPhone"})
+                </div>
+              </div>
+            <br/>
+            <br/>
+                <input type="submit" value="Create" class="btn btn-default pull-right"/>
+        </form>
+    </div>
 }
 
 @section Scripts {

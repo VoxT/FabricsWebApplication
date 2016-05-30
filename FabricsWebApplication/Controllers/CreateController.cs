@@ -83,6 +83,11 @@ namespace FabricsWebApplication.Controllers
             //return to view
             @ViewData["WareHouseId"] = listWareHouseId;
 
+            List<SelectListItem> listPaymentMethod = new List<SelectListItem>();
+            listPaymentMethod.Add(new SelectListItem() { Value = "transfer", Text = "transfer" });
+            listPaymentMethod.Add(new SelectListItem() { Value = "cash", Text = "cash" });
+            @ViewData["paymentMethod"] = listPaymentMethod;
+
             return View();
         }
 
@@ -112,16 +117,21 @@ namespace FabricsWebApplication.Controllers
             //return to view
             @ViewData["CustomerId"] = listCustomerId;
 
-            //Get list purchaseOrder
-            PurchaseOrderService purchaseOrderService = new PurchaseOrderService();
-            var listOrderInvoice = purchaseOrderService.GetAll();
+            //Get list SalesOrder
+            SalesOrderService salesOrderService = new SalesOrderService();
+            var listOrderInvoice = salesOrderService.GetAll();
             List<SelectListItem> listOrderInvoiceId = new List<SelectListItem>();
-            foreach (var purchaseOrder in listOrderInvoice)
+            foreach (var sales in listOrderInvoice)
             {
-                listOrderInvoiceId.Add(new SelectListItem() { Value = purchaseOrder.Id.ToString(), Text = purchaseOrder.Id.Increment.ToString(), Selected = true });
+                listOrderInvoiceId.Add(new SelectListItem() { Value = sales.Id.ToString(), Text = sales.Id.Increment.ToString(), Selected = true });
             }
             //return to view
-            @ViewData["PurchaseOrderId"] = listOrderInvoiceId;            
+            @ViewData["SalesOrderId"] = listOrderInvoiceId;
+
+            List<SelectListItem> listPaymentMethod = new List<SelectListItem>();
+            listPaymentMethod.Add(new SelectListItem() { Value = "transfer", Text = "transfer" });
+            listPaymentMethod.Add(new SelectListItem() { Value = "cash", Text = "cash" });
+            @ViewData["paymentMethod"] = listPaymentMethod;
 
             return View();
         }
@@ -190,22 +200,7 @@ namespace FabricsWebApplication.Controllers
             return View();
         }
 
-        public ActionResult CreateDelivery()
-        {
-            //get list ShiperId
-            EmployeeService employee = new EmployeeService();
-            var listEmployee = employee.GetShipper();
-            List<SelectListItem> listEmployeeId = new List<SelectListItem>();
-            foreach (var emp in listEmployee)
-            {
-                listEmployeeId.Add(new SelectListItem() { Value = emp.Id.ToString(), Text = emp.Id.Increment.ToString(), Selected = true });
-            }
-            //return to view
-            @ViewData["ShipperId"] = listEmployeeId;
-
-            return View();
-        
-        }
+       
 
         public ActionResult CreateLeave()
         {
@@ -304,8 +299,41 @@ namespace FabricsWebApplication.Controllers
             return View();
         }
 
-        public ActionResult CreateRecord()
+        public ActionResult CreatePaymentForCustomer()
         {
+            //get list EmployeeId
+            EmployeeService employee = new EmployeeService();
+            var listEmployee = employee.GetAll();
+            List<SelectListItem> listEmployeeId = new List<SelectListItem>();
+            foreach (var emp in listEmployee)
+            {
+                if (emp.DriverLincenseNumber == null)
+                    listEmployeeId.Add(new SelectListItem() { Value = emp.Id.ToString(), Text = emp.Id.Increment.ToString(), Selected = true });
+            }
+            //return to view
+            @ViewData["EmployeeId"] = listEmployeeId;
+
+            //get list SupplierId
+            CustomerService customer = new CustomerService();
+            var listCustomer = customer.GetAll();
+            List<SelectListItem> listCustomerId = new List<SelectListItem>();
+            foreach (var cus in listCustomer)
+            {
+                listCustomerId.Add(new SelectListItem() { Value = cus.Id.ToString(), Text = cus.Id.Increment.ToString(), Selected = true });
+            }
+            //return to view
+            @ViewData["CustomerId"] = listCustomerId;
+
+            List<SelectListItem> listPaymentType = new List<SelectListItem>();
+            listPaymentType.Add(new SelectListItem() { Value = "revenues", Text = "revenues" });
+            listPaymentType.Add(new SelectListItem() { Value = "expenditures", Text = "expenditures" });
+            @ViewData["paymentType"] = listPaymentType;
+
+            List<SelectListItem> listPaymentMethod = new List<SelectListItem>();
+            listPaymentMethod.Add(new SelectListItem() { Value = "transfer", Text = "transfer" });
+            listPaymentMethod.Add(new SelectListItem() { Value = "cash", Text = "cash" });
+            @ViewData["paymentMethod"] = listPaymentMethod;
+
             return View();
         }
 
@@ -405,6 +433,19 @@ namespace FabricsWebApplication.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        public ActionResult CreatePaymentForCustomer(Payment models)
+        {
+            PaymentService payment = new PaymentService();
+
+            payment.Create(models);
+
+            return RedirectToAction("ViewPayment", "Show");
+
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult CreateFabrics(Fabrics models)
         {
             FabricsService fabrics = new FabricsService();
@@ -468,6 +509,21 @@ namespace FabricsWebApplication.Controllers
             return RedirectToAction("ViewPurchaseInvoice", "Show");
 
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateSalesInvoice(SalesInvoice models)
+        {
+            SalesInvoiceService salesInvoice = new SalesInvoiceService();
+
+            models.Delivery = new List<Delivery>();
+            salesInvoice.Create(models);
+
+            return RedirectToAction("ViewSalesInvoice", "Show");
+
+        }
+
 
         [HttpPost]
         [AllowAnonymous]

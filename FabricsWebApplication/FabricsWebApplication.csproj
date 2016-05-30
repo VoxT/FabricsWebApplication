@@ -330,6 +330,11 @@
     <Content Include="Views\Show\ViewPayment.cshtml" />
     <Content Include="Views\Show\ViewRecord.cshtml" />
     <Content Include="Views\Create\CreateDelivery.cshtml" />
+    <Content Include="Views\Create\CreateSalesInvoice.cshtml" />
+    <Content Include="Views\Show\ViewSalesInvoice.cshtml" />
+    <Content Include="Views\Add\AddPricesForCustomer.cshtml" />
+    <Content Include="Views\Add\AddDelivery.cshtml" />
+    <Content Include="Views\Create\CreatePaymentForCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

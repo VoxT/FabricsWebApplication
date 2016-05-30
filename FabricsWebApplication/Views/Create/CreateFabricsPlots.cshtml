@@ -11,17 +11,19 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <fieldset>
-        <legend>Registration Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.Time)
-                @Html.TextBoxFor(m => m.Time, new {@type = "date" })
-            </li>
-        </ol>
-        <input type="submit" value="Create" />
-    </fieldset>
-
+      <div class="col-md-8 col-md-ofset-2">
+        <form  class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-sm-3" for="time">Time:</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.Time, new { @class = "form-control", @id = "time",@type = "date" })
+                </div>
+              </div>
+               <br />
+            <br/>
+                <input type="submit" value="Create" class="btn btn-default pull-right"/>
+        </form>
+    </div>
 }
 
 @section Scripts {

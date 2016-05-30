@@ -1,0 +1,66 @@
+﻿@model FabricsFactoryMethodPattern.Entities.Delivery
+@{
+    ViewBag.Title = "Register";
+}
+
+<hgroup class="title">
+    <h2>Add Delivery</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+      <div class="col-md-8 col-md-ofset-2">
+        <form  class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-sm-3">ShipperId:</label>
+                <div class="col-sm-9">
+                   @Html.DropDownListFor(m => m.ShipperId,(IEnumerable<SelectListItem>)ViewData["ShipperId"])
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3">SalesInvoiceId:</label>
+                <div class="col-sm-9">
+                    @Html.DropDownList("salesInvoiceId",(IEnumerable<SelectListItem>)ViewData["SalesInvoiceId"])
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" for="packMethod">PackMethod:</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.PackMethod, new { @class = "form-control", @id = "packMethod" })
+                </div>
+              </div>
+               <br />
+               <div class="form-group">
+                <label class="col-sm-3" for="time">Time:</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.Time, new { @class = "form-control", @id = "time", @type = "date" })
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" for="address">Address:</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @id = "address" })
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" for="total">Total:</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.Total, new { @class = "form-control", @id = "total" })
+                </div>
+              </div>
+               <br />
+            <br/>
+                <input type="submit" value="Add" class="btn btn-default pull-right"/>
+        </form>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

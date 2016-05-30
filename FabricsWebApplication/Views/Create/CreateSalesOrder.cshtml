@@ -7,60 +7,52 @@
     <h2>Create a new  @ViewBag.Title</h2>
 </hgroup>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <fieldset>
-        <legend>Registration Form</legend>
-        <ol >
-            <li>
-                @Html.LabelFor(m => m.CustomerId)
-               @Html.DropDownList("CustomerId",(IEnumerable<SelectListItem>)ViewData["CustomerId"])
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Time)
-                @Html.TextBoxFor(m => m.Time,new { @type = "date" })
-            </li>
-            </ol>
-            <ol >
-            <li style ="display:inline-block">
-                @Html.Label("FabricColor Name")
-                @Html.DropDownListFor(m => m.Goods[0].FabricsColorId,(IEnumerable<SelectListItem>)ViewData["FabricsColorId"],new { @class = "fabricsColorId"})
-            </li>
-            <li style ="display:inline-block">
-          
-                @Html.LabelFor(m => m.Goods[0].TotalRoll)
-                @Html.TextBoxFor(m => m.Goods[0].TotalRoll,new { @class = "totalRoll"})
-            </li>
-            <li style ="display:inline-block">
-          
-                @Html.LabelFor(m => m.Goods[0].TotalMetter)
-                @Html.TextBoxFor(m => m.Goods[0].TotalMetter,new { @class = "totalMetter"})
-                
-            </li>
-                
-            <button class="float-right more" type ="button" onclick ="addMore()" >Add More</button>
-           </ol>
-         <input type="submit" value="Create" />
-    </fieldset>
-     <script>
-        function addMore() {
-               var count = parseInt($(".fabricsColorId").last().attr("id").substring(6));
-               count += 1;
-              
-             
-            $(".more").before('<li style ="display:inline-block">' +
-                '<select class="fabricsColorId input-validation-error" data-val="true" data-val-number="The field Increment must be a number." data-val-required="The Increment field is required." id="Goods_'+count+'__FabricsColorId_Increment" name="Goods['+count+'].FabricsColorId">'+'</select></li>' +
-                '<li style ="display:inline-block">' +
-                '<input data-val="true" data-val-number="The field TotalRoll must be a number." data-val-required="The TotalRoll field is required." id="Goods_' + count + '__TotalRoll" name="Goods[' + count + '].TotalRoll" type="text" value=""></li>' +
-                '<li style ="display:inline-block">' +
-                '<input data-val="true" data-val-number="The field TotalMetter must be a number." data-val-required="The TotalMetter field is required." id="Goods_' + count + '__TotalMetter" name="Goods[' + count + '].TotalMetter" type="text" value=""></li>');
-
-        }
-       
-
-    </script>
+    <div class="col-md-8 col-md-ofset-2">
+        <form  class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-sm-3" >CustomerId:</label>
+                <div class="col-sm-9">
+                      @Html.DropDownList("CustomerId", (IEnumerable<SelectListItem>)ViewData["CustomerId"])
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" for="time">Time:</label>
+                <div class="col-sm-9">
+                     @Html.TextBoxFor(m => m.Time, new { @class = "form-control", @id = "time", @type = "date" })
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3">FabricsColorName:</label>
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.Goods[0].FabricsColorId, (IEnumerable<SelectListItem>)ViewData["FabricsColorId"], new { @class = "fabricsColorId" })
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" for="TotalRoll">TotalRoll:</label>
+                <div class="col-sm-9">
+                     @Html.TextBoxFor(m => m.Goods[0].TotalRoll, new { @class = "form-control totalRoll", @id = "TotalRoll" })
+                </div>
+              </div>
+               <br />
+               <div class="form-group">
+                <label class="col-sm-3" for="totalMetter">TotalMetter:</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.Goods[0].TotalMetter, new { @class = "form-control totalMetter", @id = "iotalMetter" })
+                </div>
+              </div>
+               <br />
+            <br/>
+                <input type="submit" value="Create" class="btn btn-default pull-right"/>
+        </form>
+    </div>
 }
 
 @section Scripts {

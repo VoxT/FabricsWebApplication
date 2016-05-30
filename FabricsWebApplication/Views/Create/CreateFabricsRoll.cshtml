@@ -11,31 +11,40 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <fieldset>
-        <legend>Registration Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.PurchaseInvoiceId)
-                @Html.DropDownListFor(m => m.PurchaseInvoiceId,(IEnumerable<SelectListItem>)ViewData["purchaseInvoiceId"])
-            </li>
-
-            <li>
-                @Html.LabelFor(m => m.FabricsColorId)
-                @Html.DropDownListFor(m => m.FabricsColorId,(IEnumerable<SelectListItem>)ViewData["fabricsColorId"])
-            </li>
-            
-            <li>
-                @Html.LabelFor(m => m.PlotsId)
-                @Html.DropDownListFor(m => m.PlotsId,(IEnumerable<SelectListItem>)ViewData["fabricsPlotsId"])
-            </li>
-             <li>
-                @Html.LabelFor(m => m.Length)
-                @Html.TextBoxFor(m => m.Length)
-            </li>
-        </ol>
-        <input type="submit" value="Create" />
-    </fieldset>
-
+     <div class="col-md-8 col-md-ofset-2">
+        <form  class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-sm-3">PurchaseInvoiceId:</label>
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.PurchaseInvoiceId,(IEnumerable<SelectListItem>)ViewData["purchaseInvoiceId"])
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" >FabricsColorName:</label>
+                <div class="col-sm-9">
+                     @Html.DropDownListFor(m => m.FabricsColorId,(IEnumerable<SelectListItem>)ViewData["fabricsColorId"])
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" >FabricsPlotsId:</label>
+                <div class="col-sm-9">
+                     @Html.DropDownListFor(m => m.PlotsId,(IEnumerable<SelectListItem>)ViewData["fabricsPlotsId"])
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" for ="length" >Length:</label>
+                <div class="col-sm-9">
+                     @Html.TextBoxFor(m => m.Length, new {@class = "form-control",@id = "length" })
+                </div>
+              </div>
+               <br />
+            <br/>
+                <input type="submit" value="Create" class="btn btn-default pull-right"/>
+        </form>
+    </div>
 }
 
 @section Scripts {

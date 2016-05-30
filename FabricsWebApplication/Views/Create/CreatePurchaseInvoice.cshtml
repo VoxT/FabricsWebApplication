@@ -11,43 +11,61 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <fieldset>
-        <legend>Registration Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.EmployeeId)
-                @Html.DropDownListFor(m => m.EmployeeId,(IEnumerable<SelectListItem>)ViewData["EmployeeId"])
-            </li>
-
-            <li>
-                @Html.LabelFor(m => m.SupplierId)
-                @Html.DropDownListFor(m => m.SupplierId,(IEnumerable<SelectListItem>)ViewData["SupplierId"])
-            </li>
-            
-            <li>
-                @Html.LabelFor(m => m.PurchaseOrderId)
-                @Html.DropDownListFor(m => m.PurchaseOrderId,(IEnumerable<SelectListItem>)ViewData["PurchaseOrderId"])
-            </li>
-            <li>
-                @Html.LabelFor(m => m.WareHouseId)
-                @Html.DropDownListFor(m => m.WareHouseId,(IEnumerable<SelectListItem>)ViewData["WareHouseId"])
-            </li>
-             <li>
-                @Html.LabelFor(m => m.PaymentMethod)
-                @Html.TextBoxFor(m => m.PaymentMethod)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Time)
-                @Html.TextBoxFor(m => m.Time, new {@type = "date" })
-            </li>
-            <li>
-                @Html.LabelFor(m => m.DiscountPercent)
-                @Html.TextBoxFor(m => m.DiscountPercent)
-            </li>
-        </ol>
-        <input type="submit" value="Create" />
-    </fieldset>
-
+    <div class="col-md-8 col-md-ofset-2">
+        <form  class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-sm-3" >EmployeeId:</label>
+                <div class="col-sm-9">
+                     @Html.DropDownListFor(m => m.EmployeeId, (IEnumerable<SelectListItem>)ViewData["EmployeeId"])
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" >SupplierId:</label>
+                <div class="col-sm-9">
+                     @Html.DropDownListFor(m => m.SupplierId,(IEnumerable<SelectListItem>)ViewData["SupplierId"])
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" >PurchaseOrderId:</label>
+                <div class="col-sm-9">
+                     @Html.DropDownListFor(m => m.PurchaseOrderId,(IEnumerable<SelectListItem>)ViewData["PurchaseOrderId"])
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" >WareHouseId:</label>
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.WareHouseId,(IEnumerable<SelectListItem>)ViewData["WareHouseId"])
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" for="time">Time:</label>
+                <div class="col-sm-9">
+                     @Html.TextBoxFor(m => m.Time, new { @class = "form-control", @id = "time", @type = "date" })
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3">PaymentMethod:</label>
+                <div class="col-sm-9">
+                     @Html.DropDownListFor(m => m.PaymentMethod,(IEnumerable<SelectListItem>)ViewData["paymentMethod"])
+                </div>
+              </div>
+               <br />
+               <div class="form-group">
+                <label class="col-sm-3" for="discountPercent">DiscountPercent:</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.DiscountPercent, new { @class = "form-control " ,@id ="discountPercent"})
+                </div>
+              </div>
+               <br />
+            <br/>
+                <input type="submit" value="Create" class="btn btn-default pull-right"/>
+        </form>
+    </div>
 }
 
 @section Scripts {

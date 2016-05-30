@@ -23,6 +23,7 @@
             <th>DeskPhone</th>
             <th>AccountNumber</th>
             <th>BankName</th>
+            <th>Dept</th>
 
         </thead>
         <tbody>
@@ -64,6 +65,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => ex.Bank.BankName)
+                </td>
+                <td>
+                     @ViewData[ex.Id.ToString()]
                 </td>
             </tr>           
         }

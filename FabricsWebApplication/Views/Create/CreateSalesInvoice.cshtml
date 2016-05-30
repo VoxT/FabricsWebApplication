@@ -1,14 +1,13 @@
-﻿@model FabricsFactoryMethodPattern.Entities.PurchaseOrder
+﻿@model FabricsFactoryMethodPattern.Entities.SalesInvoice
 @{
-    ViewBag.Title = "PurchaseOrder";
+    ViewBag.Title = "PurchaseInvoice";
 }
 
 <hgroup class="title">
-    <h2>Create a new  @ViewBag.Title</h2>
+    <h2>Create a @ViewBag.Title</h2>
 </hgroup>
 
-@using (Html.BeginForm())
-{
+@using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
@@ -22,6 +21,20 @@
               </div>
                <br />
               <div class="form-group">
+                <label class="col-sm-3" >CustomerId:</label>
+                <div class="col-sm-9">
+                     @Html.DropDownListFor(m => m.CustomerId,(IEnumerable<SelectListItem>)ViewData["CustomerId"])
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" >SalesOrderId:</label>
+                <div class="col-sm-9">
+                     @Html.DropDownListFor(m => m.SalesOrderId,(IEnumerable<SelectListItem>)ViewData["SalesOrderId"])
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
                 <label class="col-sm-3" for="time">Time:</label>
                 <div class="col-sm-9">
                      @Html.TextBoxFor(m => m.Time, new { @class = "form-control", @id = "time", @type = "date" })
@@ -29,23 +42,16 @@
               </div>
                <br />
               <div class="form-group">
-                <label class="col-sm-3">FabricsColorName:</label>
+                <label class="col-sm-3">PaymentMethod:</label>
                 <div class="col-sm-9">
-                    @Html.DropDownListFor(m => m.Goods[0].FabricsColorId, (IEnumerable<SelectListItem>)ViewData["FabricsColorId"], new { @class = "fabricsColorId" })
-                </div>
-              </div>
-               <br />
-              <div class="form-group">
-                <label class="col-sm-3" for="TotalRoll">TotalRoll:</label>
-                <div class="col-sm-9">
-                     @Html.TextBoxFor(m => m.Goods[0].TotalRoll, new { @class = "form-control totalRoll" ,@id ="TotalRoll"})
+                     @Html.DropDownListFor(m => m.PaymentMethod,(IEnumerable<SelectListItem>)ViewData["paymentMethod"])
                 </div>
               </div>
                <br />
                <div class="form-group">
-                <label class="col-sm-3" for="totalMetter">TotalMetter:</label>
+                <label class="col-sm-3" for="discountPercent">DiscountPercent:</label>
                 <div class="col-sm-9">
-                    @Html.TextBoxFor(m => m.Goods[0].TotalMetter, new { @class = "form-control totalMetter" , @id ="iotalMetter"})
+                    @Html.TextBoxFor(m => m.DiscountPercent, new { @class = "form-control " ,@id ="discountPercent"})
                 </div>
               </div>
                <br />

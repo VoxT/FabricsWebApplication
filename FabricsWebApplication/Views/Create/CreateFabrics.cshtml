@@ -11,21 +11,26 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <fieldset>
-        <legend>Registration Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.Name)
-                @Html.TextBoxFor(m => m.Name)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Description)
-                @Html.TextBoxFor(m => m.Description)
-            </li>
-
-        </ol>
-        <input type="submit" value="Create" />
-    </fieldset>
+    <div class="col-md-8 col-md-ofset-2">
+        <form  class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-sm-3" for="name">Name:</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @id = "name" })
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" for="description">Description:</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.Description, new { @class = "form-control", @id = "description" })
+                </div>
+              </div>
+               <br />
+            <br/>
+                <input type="submit" value="Create" class="btn btn-default pull-right"/>
+        </form>
+    </div>
 
 }
 

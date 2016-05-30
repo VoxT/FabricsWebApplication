@@ -11,22 +11,26 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <fieldset>
-        <legend>Registration Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.ColorName)
-                @Html.TextBoxFor(m => m.ColorName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.FabricsId)
-                @Html.DropDownListFor(m => m.FabricsId,(IEnumerable<SelectListItem>)ViewData["id"])
-               
-            </li>
-        </ol>
-        <input type="submit" value="Create" />
-    </fieldset>
-
+    <div class="col-md-8 col-md-ofset-2">
+        <form  class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-sm-3" for="colorname">Color Name:</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.ColorName, new { @class = "form-control", @id = "colorname" })
+                </div>
+              </div>
+               <br />
+              <div class="form-group">
+                <label class="col-sm-3" for="fabricsId">Fabrics Name:</label>
+                <div class="col-sm-9">
+                   @Html.DropDownListFor(m => m.FabricsId, (IEnumerable<SelectListItem>)ViewData["id"], new {@id = "fabricsId" })
+                </div>
+              </div>
+               <br />
+            <br/>
+                <input type="submit" value="Create" class="btn btn-default pull-right"/>
+        </form>
+    </div>
 }
 
 @section Scripts {

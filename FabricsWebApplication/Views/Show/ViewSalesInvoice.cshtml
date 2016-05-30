@@ -1,0 +1,66 @@
+﻿@model IEnumerable<FabricsFactoryMethodPattern.Entities.SalesInvoice>
+@{
+    ViewBag.Title = "SalesInvoice";
+}
+
+<hgroup class="title">
+    <h2>@ViewBag.Title List</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+             
+  <table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>EmployeeId</th>
+            <th>Customer</th>
+            <th>SalesOrderId</th>
+            <th>DeliveryId</th>
+            <th>PaymentMethod</th>
+            <th>Time</th>
+            <th>TotalMoney</th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var ex in Model) { 
+           <tr> 
+                 <td>
+             @Html.DisplayFor(modelItem => ex.Id.Increment)
+                 </td>
+                <td>
+             @Html.DisplayFor(modelItem => ex.EmployeeId.Increment)
+                 </td>
+               <td>
+             @Html.DisplayFor(modelItem => ex.CustomerId.Increment)
+                 </td>
+
+               <td>
+             @Html.DisplayFor(modelItem => ex.SalesOrderId.Increment)
+                 </td>
+               <td>
+                   @if(ex.Delivery.Count > 0){
+             @Html.DisplayFor(modelItem => ex.Delivery[0].ShipperId.Increment)
+                    }
+                 </td>
+                 <td>
+             @Html.DisplayFor(modelItem => ex.PaymentMethod)
+                 </td>
+                 <td>
+             @Html.DisplayFor(modelItem => ex.Time)
+                 </td>
+               <td>
+                   @ViewData[ex.CustomerId.ToString()]
+               </td>
+           </tr>           
+       }
+    </tbody>
+    </table>
+   
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

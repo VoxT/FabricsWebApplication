@@ -26,7 +26,10 @@ namespace FabricsWebApplication.Controllers
             List<Customer> model = new List<Customer>();
 
             model = customer.GetAll();
-
+            foreach (var cus in model)
+            {
+                @ViewData[cus.Id.ToString()] = customer.GetDebt(cus.Id.ToString());
+            }
             return View(model);
         }
 
@@ -89,6 +92,22 @@ namespace FabricsWebApplication.Controllers
             foreach (var ex in model)
             {
                 @ViewData[ex.SupplierId.ToString()] = purchaseInvoice.GetTotalMoney(ex);
+            }
+
+            return View(model);
+        }
+
+        public ActionResult ViewSalesInvoice()
+        {
+            SalesInvoiceService salesInvoice = new SalesInvoiceService();
+
+            List<SalesInvoice> model = new List<SalesInvoice>();
+
+            model = salesInvoice.GetAll();
+            List<Double> listTotalMoney = new List<Double>();
+            foreach (var ex in model)
+            {
+                @ViewData[ex.CustomerId.ToString()] = salesInvoice.GetTotalMoney(ex);
             }
 
             return View(model);

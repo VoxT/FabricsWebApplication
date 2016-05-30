@@ -4,7 +4,7 @@
 }
 
 <hgroup class="title">
-    <h2>Add price for supplier</h2>
+    <h2>Add price for customer</h2>
 </hgroup>
 
 @using (Html.BeginForm()) {
@@ -14,9 +14,9 @@
       <div class="col-md-8 col-md-ofset-2">
         <form  class="form-horizontal" role="form">
               <div class="form-group">
-                <label class="col-sm-3">SupplierId:</label>
+                <label class="col-sm-3">CustomerId:</label>
                 <div class="col-sm-9">
-                   @Html.DropDownList("id",(IEnumerable<SelectListItem>)ViewData["SupplierId"])
+                   @Html.DropDownList("id",(IEnumerable<SelectListItem>)ViewData["CustomerId"])
                 </div>
               </div>
                <br />
