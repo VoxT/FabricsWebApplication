@@ -16,8 +16,8 @@
         <form  class="form-horizontal" role="form">
               <div class="form-group">
                 <label class="col-sm-3" >EmployeeId:</label>
-                <div class="col-sm-9">
-                     @Html.DropDownListFor(m => m.EmployeeId, (IEnumerable<SelectListItem>)ViewData["EmployeeId"])
+                <div class="col-sm-3">
+                     @Html.DropDownListFor(m => m.EmployeeId, (IEnumerable<SelectListItem>)ViewData["EmployeeId"], new { @class = "form-control"})
                 </div>
               </div>
                <br />
@@ -30,8 +30,8 @@
                <br />
               <div class="form-group">
                 <label class="col-sm-3">FabricsColorName:</label>
-                <div class="col-sm-9">
-                    @Html.DropDownListFor(m => m.Goods[0].FabricsColorId, (IEnumerable<SelectListItem>)ViewData["FabricsColorId"], new { @class = "fabricsColorId" })
+                <div class="col-sm-3">
+                    @Html.DropDownListFor(m => m.Goods[0].FabricsColorId, (IEnumerable<SelectListItem>)ViewData["FabricsColorId"], new { @class = "fabricsColorId form-control" })
                 </div>
               </div>
                <br />

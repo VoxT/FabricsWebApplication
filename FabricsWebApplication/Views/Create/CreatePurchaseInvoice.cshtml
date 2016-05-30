@@ -15,29 +15,29 @@
         <form  class="form-horizontal" role="form">
               <div class="form-group">
                 <label class="col-sm-3" >EmployeeId:</label>
-                <div class="col-sm-9">
-                     @Html.DropDownListFor(m => m.EmployeeId, (IEnumerable<SelectListItem>)ViewData["EmployeeId"])
+                <div class="col-sm-3">
+                     @Html.DropDownListFor(m => m.EmployeeId, (IEnumerable<SelectListItem>)ViewData["EmployeeId"], new { @class = "form-control"})
                 </div>
               </div>
                <br />
               <div class="form-group">
                 <label class="col-sm-3" >SupplierId:</label>
-                <div class="col-sm-9">
-                     @Html.DropDownListFor(m => m.SupplierId,(IEnumerable<SelectListItem>)ViewData["SupplierId"])
+                <div class="col-sm-3">
+                     @Html.DropDownListFor(m => m.SupplierId,(IEnumerable<SelectListItem>)ViewData["SupplierId"], new { @class = "form-control"})
                 </div>
               </div>
                <br />
               <div class="form-group">
                 <label class="col-sm-3" >PurchaseOrderId:</label>
-                <div class="col-sm-9">
-                     @Html.DropDownListFor(m => m.PurchaseOrderId,(IEnumerable<SelectListItem>)ViewData["PurchaseOrderId"])
+                <div class="col-sm-3">
+                     @Html.DropDownListFor(m => m.PurchaseOrderId,(IEnumerable<SelectListItem>)ViewData["PurchaseOrderId"], new { @class = "form-control"})
                 </div>
               </div>
                <br />
               <div class="form-group">
                 <label class="col-sm-3" >WareHouseId:</label>
-                <div class="col-sm-9">
-                    @Html.DropDownListFor(m => m.WareHouseId,(IEnumerable<SelectListItem>)ViewData["WareHouseId"])
+                <div class="col-sm-3">
+                    @Html.DropDownListFor(m => m.WareHouseId,(IEnumerable<SelectListItem>)ViewData["WareHouseId"], new { @class = "form-control"})
                 </div>
               </div>
                <br />
@@ -50,8 +50,8 @@
                <br />
               <div class="form-group">
                 <label class="col-sm-3">PaymentMethod:</label>
-                <div class="col-sm-9">
-                     @Html.DropDownListFor(m => m.PaymentMethod,(IEnumerable<SelectListItem>)ViewData["paymentMethod"])
+                <div class="col-sm-3">
+                     @Html.DropDownListFor(m => m.PaymentMethod,(IEnumerable<SelectListItem>)ViewData["paymentMethod"], new { @class = "form-control"})
                 </div>
               </div>
                <br />

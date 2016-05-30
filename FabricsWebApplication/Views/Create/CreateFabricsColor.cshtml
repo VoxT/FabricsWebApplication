@@ -22,8 +22,8 @@
                <br />
               <div class="form-group">
                 <label class="col-sm-3" for="fabricsId">Fabrics Name:</label>
-                <div class="col-sm-9">
-                   @Html.DropDownListFor(m => m.FabricsId, (IEnumerable<SelectListItem>)ViewData["id"], new {@id = "fabricsId" })
+                <div class="col-sm-3">
+                   @Html.DropDownListFor(m => m.FabricsId, (IEnumerable<SelectListItem>)ViewData["id"], new {@id = "fabricsId" ,@class = "form-control"})
                 </div>
               </div>
                <br />

@@ -15,15 +15,15 @@
         <form  class="form-horizontal" role="form">
               <div class="form-group">
                 <label class="col-sm-3" >EmployeeId:</label>
-                <div class="col-sm-9">
-                     @Html.DropDownListFor(m => m.EmployeeId,(IEnumerable<SelectListItem>)ViewData["EmployeeId"])
+                <div class="col-sm-3">
+                     @Html.DropDownListFor(m => m.EmployeeId,(IEnumerable<SelectListItem>)ViewData["EmployeeId"], new { @class = "form-control"})
                 </div>
               </div>
                <br />
               <div class="form-group">
                 <label class="col-sm-3" >SupplierId:</label>
-                <div class="col-sm-9">
-                   @Html.DropDownListFor(m => m.SupplierId,(IEnumerable<SelectListItem>)ViewData["SupplierId"])
+                <div class="col-sm-3">
+                   @Html.DropDownListFor(m => m.SupplierId,(IEnumerable<SelectListItem>)ViewData["SupplierId"], new { @class = "form-control"})
                 </div>
               </div>
                <br />
@@ -43,8 +43,8 @@
                <br />
                <div class="form-group">
                 <label class="col-sm-3" >PaymentMethod:</label>
-                <div class="col-sm-9">
-                    @Html.DropDownListFor(m => m.PaymentMethod,(IEnumerable<SelectListItem>)ViewData["paymentMethod"])
+                <div class="col-sm-3">
+                    @Html.DropDownListFor(m => m.PaymentMethod,(IEnumerable<SelectListItem>)ViewData["paymentMethod"], new { @class = "form-control"})
                 </div>
               </div>
                <br />
@@ -71,8 +71,8 @@
                <br />
             <div class="form-group">
                 <label class="col-sm-3" >PaymentType:</label>
-                <div class="col-sm-9">
-                    @Html.DropDownListFor(m => m.PaymentType,(IEnumerable<SelectListItem>)ViewData["paymentType"])
+                <div class="col-sm-3">
+                    @Html.DropDownListFor(m => m.PaymentType,(IEnumerable<SelectListItem>)ViewData["paymentType"], new { @class = "form-control"})
                 </div>
               </div>
                <br />
